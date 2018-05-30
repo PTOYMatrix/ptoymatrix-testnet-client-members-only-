@@ -20,6 +20,7 @@ const dataDecryption = require('./lib/dataDecryption')
 const getBalance = require('./lib/getBalance')
 const transferPTOY = require('./lib/transferPTOY')
 const submitPTOYTx = require('./lib/submitPTOYTx')
+const healthCheck = require('./lib/healthCheck')
 
 module.exports = {
   mobileRegistration,
@@ -43,5 +44,6 @@ module.exports = {
   dataDecryption,
   getBalance,
   transferPTOY,
-  submitPTOYTx
+  submitPTOYTx,
+  healthCheck
 }
