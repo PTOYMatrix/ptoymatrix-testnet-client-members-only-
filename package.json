@@ -7,7 +7,8 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify index.js -t babelify --outfile ./dist/bundle.js --standalone sdk"
   },
   "repository": {
     "type": "git",
@@ -31,8 +32,16 @@
     "node-rsa": "^1.0.0",
     "request": "^2.87.0",
     "request-promise": "^4.2.2",
-    "standard": "^11.0.1",
+    "standard": "^14.3.1",
     "validate.js": "^0.12.0",
     "validator": "^10.2.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.2",
+    "@babel/polyfill": "^7.7.0",
+    "@babel/preset-env": "^7.7.1",
+    "babelify": "^10.0.0",
+    "browserify": "^16.5.0"
   }
 }
