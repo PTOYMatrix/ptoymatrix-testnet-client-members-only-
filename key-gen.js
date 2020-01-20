@@ -38,18 +38,19 @@ async function signupDataGenerator () {
     messageString: ecdsa.address
   }).run()
 
-  console.log(`
-    signupReferenceId: 
-    ecdsaPubKey: ${ecdsa.publicKey}
-    rsaPubKey: ${rsa.publicKey}
-    ecdsaEncPrivKey: ${ecdsaEnc}
-    rsaEncPrivKey: ${rsaEnc}
-    walletAddress: ${ecdsa.address}
-    rsaSignature: ${rsaSign.rsaSignature}
-    ecdsaSignature: ${ecdsaSign.ecdsaSignature}
-    dashAddress: ${dash.address}
-    mnemonics: ${mnemonic}
-  `)
+  console.log({
+    signupReferenceId: '',
+    ecdsaPubKey: `${ecdsa.publicKey}`,
+    rsaPubKey: `${rsa.publicKey}`,
+    ecdsaEncPrivKey: `${ecdsaEnc}`,
+    rsaEncPrivKey: `${rsaEnc}`,
+    walletAddress: `${ecdsa.address}`,
+    rsaSignature: `${rsaSign.rsaSignature}`,
+    ecdsaSignature: `${ecdsaSign.ecdsaSignature}`,
+    dashAddress: `${dash.address}`,
+    mnemonics: `${mnemonic}`,
+    rsaNonHexPrivateKey: `${rsa.nonHexPrivateKey}})`
+  })
 }
 
 signupDataGenerator()
