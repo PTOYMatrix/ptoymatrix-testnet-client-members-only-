@@ -29,7 +29,7 @@
     "ethereumjs-wallet": "^0.6.0",
     "loadash": "^1.0.0",
     "lodash": "^4.17.15",
-    "node-rsa": "^1.0.0",
+    "node-rsa": "^1.0.8",
     "request": "^2.87.0",
     "request-promise": "^4.2.2",
     "standard": "^14.3.1",
