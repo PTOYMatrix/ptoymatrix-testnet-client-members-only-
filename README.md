@@ -1,4 +1,4 @@
-# ptoy-testnet-client
+# PTOYMatrix client SDK
 
 ![banner](docs/images/PTOY-logo.jpg)
 
@@ -7,15 +7,15 @@ breaking changes as we get better.
 
 ## Overview
 
-This is a client framework for building applications connecting to PTOY testnet
-blockchain.
+This is a client framework for building applications connecting to PTOYMatrix
+blockchain network.
 
-The goal of the ptoy-testnet-client is to allow developers to easily create and
-test applications within the PTOY Network (testnet) without having to recreate
+The goal of the PTOYMatrix client SDK is to allow developers to easily create and
+test applications within the PTOYMatrix Network (testnet) without having to recreate
 common blockchain functionality. We visualize the SDK as the standalone nodejs
-package to build blockchain applications on top of PTOY Network (testnet).
+package to build blockchain applications on top of PTOYMatrix Network (testnet).
 
-_Note: For now the ptoy-testnet-client only exists in javascript as nodejs
+_Note: For now the PTOYMatrix client SDK only exists in javascript as nodejs
 module, which means developers can develop modules in Nodejs using this SDK. In
 the future, we expect that the SDK to be implemented in other programming
 languages._
@@ -42,10 +42,10 @@ languages._
 ### Quick Start
 
 ```js
-const ptoy-testnet-client = require('ptoy-testnet-client');
+const client = require('ptoy-testnet-client');
 ```
 
-`ptoy-testnet-client` contains the following services
+`client` instance contains the following services
 
 - [`mobileRegistration`](#mobileregistration) — Let the user register with the
   mobile number on the network
@@ -179,7 +179,7 @@ sdk.ecdsaKeyPairGenerator
 
 #### mobileRegistration
 
-This service is used to register mobile number on PTOY Network (testnet).
+This service is used to register mobile number on PTOYMatrix Network (testnet).
 
 > Parameters
 
@@ -353,7 +353,7 @@ Returns
 
 ### dataDecryption
 
-This service is used to decrypt the data downloaded from PTOY Network (testnet)
+This service is used to decrypt the data downloaded from PTOYMatrix Network (testnet)
 using hybrid encryption/decryption and store it in a file.
 
 > Parameters
@@ -377,7 +377,7 @@ Returns
 
 ### signUp
 
-This service is used to sign up a user on PTOY Network (testnet)
+This service is used to sign up a user on PTOYMatrix Network (testnet)
 
 > Parameters
 
@@ -407,7 +407,7 @@ Returns
 
 ### getUserProfile
 
-This service is used to get user profile from PTOY Network (testnet).
+This service is used to get user profile from PTOYMatrix Network (testnet).
 
 > Parameters
 
@@ -416,7 +416,7 @@ This service is used to get user profile from PTOY Network (testnet).
 
 Returns
 
-```
+```js
 {
   "mobile": "1234567820",
   "mobileCountry": "+1",
@@ -444,7 +444,7 @@ Returns
 
 ### login
 
-This service is used to login user on PTOY Network (testnet).
+This service is used to login user on PTOYMatrix Network (testnet).
 
 > Parameters
 
@@ -466,7 +466,7 @@ Returns
 
 ### uploadFile
 
-This service is used to upload user file on PTOY Network (testnet).
+This service is used to upload user file on PTOYMatrix Network (testnet).
 
 > Parameters
 
@@ -490,7 +490,7 @@ Returns
 ```
 
 User need to sign this raw transaction with ECDSA private key using
-[signTransaction](#signtransaction) service. And submit tx to PTOY Network
+[signTransaction](#signtransaction) service. And submit tx to PTOYMatrix Network
 (testnet) using [submitTx](#submittx) service.
 
 ### signTransaction
@@ -512,7 +512,7 @@ Returns
 
 ### submitTx
 
-This service is used to submit the signed transaction to PTOY Network (testnet).
+This service is used to submit the signed transaction to PTOYMatrix Network (testnet).
 
 > Parameters
 
@@ -531,7 +531,7 @@ Returns
 
 ### getAllFiles
 
-This service is used to get all user files uploaded to PTOY Network (testnet).
+This service is used to get all user files uploaded to PTOYMatrix Network (testnet).
 
 > Parameters
 
@@ -554,7 +554,7 @@ Returns
 
 The format of the object is
 
-```
+```js
 {
   "uploaderWalletAddress": {
     "fileName": {
@@ -568,7 +568,7 @@ The format of the object is
 
 ### getFile
 
-This service is used to get a single file from the PTOY Network (testnet).
+This service is used to get a single file from the PTOYMatrix Network (testnet).
 
 > Parameters
 
@@ -588,7 +588,7 @@ Returns
 
 ### getBalance
 
-This service is used to get user balances from PTOY Network (testnet).
+This service is used to get user balances from PTOYMatrix Network (testnet).
 
 > Parameters
 
@@ -632,12 +632,12 @@ Returns
 ```
 
 The user needs to sign this raw transaction with ECDSA private key using
-[signTransaction](#signtransaction) service. And submit tx to PTOY Network
+[signTransaction](#signtransaction) service. And submit tx to PTOYMatrix Network
 (testnet) using [submitPTOYTx](#submitptoytx) service.
 
 ### submitPTOYTx
 
-This service is used to submit the signed transaction to PTOY Network (testnet).
+This service is used to submit the signed transaction to PTOYMatrix Network (testnet).
 
 > Parameters
 
@@ -657,4 +657,4 @@ Returns
 ## License
 
 - Open-source
-  [MIT](https://github.com/PTOYNetwork/ptoy-testnet-client/blob/master/LICENSE).
+  [MIT](https://github.com/PTOYMatrix/ptoy-testnet-client/blob/master/LICENSE).
