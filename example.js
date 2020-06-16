@@ -1,5 +1,6 @@
 const sdk = require('./index')
 
+// mobile registration
 sdk.mobileRegistration
   .run({ mobileCountry: '+1', mobile: '1234567890' })
   .then(function (data) {

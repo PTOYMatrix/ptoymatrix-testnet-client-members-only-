@@ -2,73 +2,103 @@
 
 ![banner](docs/images/PTOY-logo.jpg)
 
-**WARNING**: This software is still under development (beta), may undergo breaking changes as we get better.
+**WARNING**: This software is still under development (beta), may undergo
+breaking changes as we get better.
 
 ## Overview
 
-This is a client framework for building applications connecting to PTOY testnet blockchain.
+This is a client framework for building applications connecting to PTOY testnet
+blockchain.
 
-The goal of the ptoy-testnet-client is to allow developers to easily create and test applications within the PTOY Network (testnet) without having to recreate common blockchain functionality. We visualize the SDK as the standalone nodejs package to build blockchain applications on top of PTOY Network (testnet).
+The goal of the ptoy-testnet-client is to allow developers to easily create and
+test applications within the PTOY Network (testnet) without having to recreate
+common blockchain functionality. We visualize the SDK as the standalone nodejs
+package to build blockchain applications on top of PTOY Network (testnet).
 
-_Note: For now the ptoy-testnet-client only exists in javascript as nodejs module, which means developers can develop modules in Nodejs using this SDK. In the future, we expect that the SDK to be implemented in other programming languages._
+_Note: For now the ptoy-testnet-client only exists in javascript as nodejs
+module, which means developers can develop modules in Nodejs using this SDK. In
+the future, we expect that the SDK to be implemented in other programming
+languages._
 
 ## Prerequisites
-- [Nodejs] (https://nodejs.org/en/download/)
 
-## Key features (in  testnet):
+- [Nodejs](https://nodejs.org/en/download/)
 
- * ECDSA key pair generation.
- * RSA key pair generation
- * DASH key pair generation
- * Mnemonic generation.
- * Encrypt/Decrypt Private keys.
- * Create RSA and ECDSA signature.
- * Decrypt Data using hybrid encryption/decryption technique.
- * Sign raw transaction using ECDSA private key.
- * Store data
- * Retrieve stored data
- * Transfer PTOYs
- * Submit a PTOY transaction
+## Key features (in testnet):
+
+- ECDSA key pair generation.
+- RSA key pair generation
+- DASH key pair generation
+- Mnemonic generation.
+- Encrypt/Decrypt Private keys.
+- Create RSA and ECDSA signature.
+- Decrypt Data using hybrid encryption/decryption technique.
+- Sign raw transaction using ECDSA private key.
+- Store data
+- Retrieve stored data
+- Transfer PTOYs
+- Submit a PTOY transaction
 
 ### Quick Start
 
 ```js
 const ptoy-testnet-client = require('ptoy-testnet-client');
 ```
+
 `ptoy-testnet-client` contains the following services
 
-* [`mobileRegistration`](#mobileregistration) — Let the user register with the mobile number on the network
-* [`mobileVerification`](#mobileverification) — Let the user verify the mobile number after registration.
-* [`generateMnemonic`](#generatemnemonic) — To generate 12 word mnemonic.
-* [`ecdsaKeyPairGenerator`](#ecdsakeypairgenerator) — To Generate ECDSA key pair and wallet address.
-* [`dashKeyPairGenerator`](#dashkeypairgenerator) — To Generate DASH key pair and wallet address.
-* [`rsaKeyPairGenerator`](#rsakeypairgenerator) — To Generate RSA key pair and wallet address.
-* [`createSignatureECDSA`](#createsignatureecdsa) — Create Signature by using ECDSA private key.
-* [`createSignatureRSA`](#createsignaturersa) — Create Signature by using RSA private key.
-* [`encryptPrivateKey`](#encryptprivatekey) — Encrypt String using AES encryption.
-* [`decryptPrivateKey`](#decryptprivatekey) — Decrypt String using AES encryption.
-* [`signUp`](#signup) — Let the user to Signup on the network.
-* [`getUserProfile`](#getuserprofile) — Let the user get the profile from the network.
-* [`login`](#login) — Let the user to login to the network.
-* [`uploadFile`](#uploadfile) — Let user to upload a file to the network.
-* [`signTransaction`](#signtransaction) — To sign a raw transaction with ECDSA private key.
-* [`submitTx`](#submittx) — Submit signed transaction to the network.
-* [`getAllFiles`](#getallfiles) — Let the user get the list of all files uploaded to the network.
-* [`getFile`](#getfile) — Let the user get the single file uploaded to the network.
-* [`dataDecryption`](#datadecryption) — Let the user to Decrypt the file.
-* [`getBalance`](#getbalance) — Let the user check their PTOY balance on the network.
-* [`transferPTOY`](#transferptoy) — Let the user generate a raw transaction to the network to transfer PTOY from one address to another.
-* [`submitPTOYTx`](#submitptoytx) — Let the user submit the signed transaction to the network to transfer PTOY from one address to another.
+- [`mobileRegistration`](#mobileregistration) — Let the user register with the
+  mobile number on the network
+- [`mobileVerification`](#mobileverification) — Let the user verify the mobile
+  number after registration.
+- [`generateMnemonic`](#generatemnemonic) — To generate 12 word mnemonic.
+- [`ecdsaKeyPairGenerator`](#ecdsakeypairgenerator) — To Generate ECDSA key pair
+  and wallet address.
+- [`dashKeyPairGenerator`](#dashkeypairgenerator) — To Generate DASH key pair
+  and wallet address.
+- [`rsaKeyPairGenerator`](#rsakeypairgenerator) — To Generate RSA key pair and
+  wallet address.
+- [`createSignatureECDSA`](#createsignatureecdsa) — Create Signature by using
+  ECDSA private key.
+- [`createSignatureRSA`](#createsignaturersa) — Create Signature by using RSA
+  private key.
+- [`encryptPrivateKey`](#encryptprivatekey) — Encrypt String using AES
+  encryption.
+- [`decryptPrivateKey`](#decryptprivatekey) — Decrypt String using AES
+  encryption.
+- [`signUp`](#signup) — Let the user to Signup on the network.
+- [`getUserProfile`](#getuserprofile) — Let the user get the profile from the
+  network.
+- [`login`](#login) — Let the user to login to the network.
+- [`uploadFile`](#uploadfile) — Let user to upload a file to the network.
+- [`signTransaction`](#signtransaction) — To sign a raw transaction with ECDSA
+  private key.
+- [`submitTx`](#submittx) — Submit signed transaction to the network.
+- [`getAllFiles`](#getallfiles) — Let the user get the list of all files
+  uploaded to the network.
+- [`getFile`](#getfile) — Let the user get the single file uploaded to the
+  network.
+- [`dataDecryption`](#datadecryption) — Let the user to Decrypt the file.
+- [`getBalance`](#getbalance) — Let the user check their PTOY balance on the
+  network.
+- [`transferPTOY`](#transferptoy) — Let the user generate a raw transaction to
+  the network to transfer PTOY from one address to another.
+- [`submitPTOYTx`](#submitptoytx) — Let the user submit the signed transaction
+  to the network to transfer PTOY from one address to another.
 
 ### Running Services
 
-User cannot call these services directly, there are two ways to run the services listed above.
+User cannot call these services directly, there are two ways to run the services
+listed above.
 
 #### `.run()`
 
-When you run the service by using `.run` then it will resolve the promise with the result of service and reject promise if there is any kind of error including validation errors.
+When you run the service by using `.run` then it will resolve the promise with
+the result of service and reject promise if there is any kind of error including
+validation errors.
 
 Example
+
 ```js
 sdk.mobileRegistration.run()
   .then(console.log)
@@ -84,11 +114,15 @@ sdk.mobileRegistration.run()
   }
 ###
 ```
+
 #### `.execute()`
 
-When you run the service by using `.execute` then it will resolve the promise with the whole service object and reject promise if there is any kind of error including validation errors.
+When you run the service by using `.execute` then it will resolve the promise
+with the whole service object and reject promise if there is any kind of error
+including validation errors.
 
 Example
+
 ```js
 sdk.mobileRegistration.run()
   .then(console.log)
@@ -119,12 +153,13 @@ sdk.mobileRegistration.run()
 
 Each service can have the following keys
 
-* args — The first arguments you passed to the service using `.run` or `.execute` as an object.
-* errors —  The error object returns by service if there is any error.
-* successful — `true` if service execution gets successful.
-* failed —  `true` if service execution gets failed.
-* result —  The result object returns by service.
-* filteredArgs — Filtered args which are used by service from `_args` object.
+- args — The first arguments you passed to the service using `.run` or
+  `.execute` as an object.
+- errors — The error object returns by service if there is any error.
+- successful — `true` if service execution gets successful.
+- failed — `true` if service execution gets failed.
+- result — The result object returns by service.
+- filteredArgs — Filtered args which are used by service from `_args` object.
 
 #### Parameters
 
@@ -133,7 +168,11 @@ Each service can have the following keys
 Example
 
 ```js
-sdk.ecdsaKeyPairGenerator.run({ mnemonic: 'dress enroll clinic friend expire spawn tone dirt become girl crater food' })
+sdk.ecdsaKeyPairGenerator
+  .run({
+    mnemonic:
+      'dress enroll clinic friend expire spawn tone dirt become girl crater food'
+  })
   .then(console.log)
   .catch(console.log)
 ```
@@ -143,8 +182,9 @@ sdk.ecdsaKeyPairGenerator.run({ mnemonic: 'dress enroll clinic friend expire spa
 This service is used to register mobile number on PTOY Network (testnet).
 
 > Parameters
-  * mobileCountry — {string} Country code of user mobile number.
-  * mobile — {string} mobile number to register.
+
+- mobileCountry — {string} Country code of user mobile number.
+- mobile — {string} mobile number to register.
 
 Returns
 
@@ -156,11 +196,14 @@ Returns
 
 #### mobileVerification
 
-This service is used to verify mobile number after registering number on PTOY Network (testnet).
+This service is used to verify mobile number after registering number on PTOY
+Network (testnet).
 
 > Parameters
-  * referenceId — {string} result of [mobileRegistration](#mobileregistration) service.
-  * mobileOtp — {string} otp code recieved on provided number.
+
+- referenceId — {string} result of [mobileRegistration](#mobileregistration)
+  service.
+- mobileOtp — {string} otp code recieved on provided number.
 
 Returns
 
@@ -187,7 +230,9 @@ Returns
 This service is used to generate ECDSA key pair.
 
 > Parameters
-  * mnemonic — {string} mnemonic code generated by [generateMnemonic](#generatemnemonic) service, or any valid mnemonic code.
+
+- mnemonic — {string} mnemonic code generated by
+  [generateMnemonic](#generatemnemonic) service, or any valid mnemonic code.
 
 Returns
 
@@ -206,7 +251,9 @@ Returns
 This service is used to generate DASH key pair in `testnet`.
 
 > Parameters
-  * mnemonic — {string} mnemonic code generated by [generateMnemonic](#generatemnemonic) service, or any valid mnemonic code.
+
+- mnemonic — {string} mnemonic code generated by
+  [generateMnemonic](#generatemnemonic) service, or any valid mnemonic code.
 
 Returns
 
@@ -239,8 +286,9 @@ Returns
 This service is used to generate ECDSA Signature
 
 > Parameters
-  * privateKey — {string} ECDSA private key.
-  * messageString — {string} message to sign.
+
+- privateKey — {string} ECDSA private key.
+- messageString — {string} message to sign.
 
 Returns
 
@@ -255,8 +303,9 @@ Returns
 This service is used to generate RSA Signature
 
 > Parameters
-  * privateKey — {string} RSA private key in `utf8` format.
-  * messageString — {string} message to sign.
+
+- privateKey — {string} RSA private key in `utf8` format.
+- messageString — {string} message to sign.
 
 Returns
 
@@ -268,11 +317,13 @@ Returns
 
 ### encryptPrivateKey
 
-This service is used to encrypt Private key, the user can also encrypt a normal string using AES encryption.
+This service is used to encrypt Private key, the user can also encrypt a normal
+string using AES encryption.
 
 > Parameters
-  * key — {string} key to encrypt.
-  * secret — {string} secret which encrypts the key.
+
+- key — {string} key to encrypt.
+- secret — {string} secret which encrypts the key.
 
 Returns
 
@@ -284,11 +335,13 @@ Returns
 
 ### decryptPrivateKey
 
-This service is used to decrypt the Private key, the user can also decrypt a normal string using AES encryption.
+This service is used to decrypt the Private key, the user can also decrypt a
+normal string using AES encryption.
 
 > Parameters
-  * encryptedKey — {string} encrypted key to decrypt.
-  * secret — {string} secret which decrypts the key.
+
+- encryptedKey — {string} encrypted key to decrypt.
+- secret — {string} secret which decrypts the key.
 
 Returns
 
@@ -300,13 +353,18 @@ Returns
 
 ### dataDecryption
 
-This service is used to decrypt the data downloaded from PTOY Network (testnet) using hybrid encryption/decryption and store it in a file.
+This service is used to decrypt the data downloaded from PTOY Network (testnet)
+using hybrid encryption/decryption and store it in a file.
 
 > Parameters
-  * encryptedFilePath — {string} encrypted file which user gets from [getFile](#getfile) service.
-  * rsaPrivateKey — {string} user rsaPrivateKey in `utf8` format.
-  * secrets — {string} secrets which user gets from [getFiles](#getallfiles) service.
-  * decryptedFilePath — {string} file path where user wants the decrypted file to write.
+
+- encryptedFilePath — {string} encrypted file which user gets from
+  [getFile](#getfile) service.
+- rsaPrivateKey — {string} user rsaPrivateKey in `utf8` format.
+- secrets — {string} secrets which user gets from [getFiles](#getallfiles)
+  service.
+- decryptedFilePath — {string} file path where user wants the decrypted file to
+  write.
 
 Returns
 
@@ -322,15 +380,17 @@ Returns
 This service is used to sign up a user on PTOY Network (testnet)
 
 > Parameters
-  * ecdsaPubKey — {string} ECDSA pub key in `hex` format.
-  * rsaPubKey — {string} RSA pub key in `hex` format.
-  * ecdsaEncPrivKey — {string} ECDSA Private Key in encrypted format.
-  * rsaEncPrivKey — {string} RSA Private Key in encrypted format.
-  * walletAddress — {string} ECDSA wallet address.
-  * dashAddress — {string} DASH wallet address.
-  * signupReferenceId — {string} sign up reference id user gets from [mobileVerfication](#mobileVerfication) service.
-  * rsaSignature — {string} RSA sigature for message as ECDSA wallet address.
-  * ecdsaSignature — {string} ECDSA sigature for message as ECDSA wallet address.
+
+- ecdsaPubKey — {string} ECDSA pub key in `hex` format.
+- rsaPubKey — {string} RSA pub key in `hex` format.
+- ecdsaEncPrivKey — {string} ECDSA Private Key in encrypted format.
+- rsaEncPrivKey — {string} RSA Private Key in encrypted format.
+- walletAddress — {string} ECDSA wallet address.
+- dashAddress — {string} DASH wallet address.
+- signupReferenceId — {string} sign up reference id user gets from
+  [mobileVerfication](#mobileVerfication) service.
+- rsaSignature — {string} RSA sigature for message as ECDSA wallet address.
+- ecdsaSignature — {string} ECDSA sigature for message as ECDSA wallet address.
 
 Returns
 
@@ -350,7 +410,9 @@ Returns
 This service is used to get user profile from PTOY Network (testnet).
 
 > Parameters
-  * accessToken — {string} access token user gets from [signup](#signup) or [login](#login) service.
+
+- accessToken — {string} access token user gets from [signup](#signup) or
+  [login](#login) service.
 
 Returns
 
@@ -385,8 +447,9 @@ Returns
 This service is used to login user on PTOY Network (testnet).
 
 > Parameters
-  * walletAddress — {string} ECDSA wallet address.
-  * ecdsaSignature — {string} ECDSA sigature for message as ECDSA wallet address.
+
+- walletAddress — {string} ECDSA wallet address.
+- ecdsaSignature — {string} ECDSA sigature for message as ECDSA wallet address.
 
 Returns
 
@@ -406,9 +469,11 @@ Returns
 This service is used to upload user file on PTOY Network (testnet).
 
 > Parameters
-  * accessToken — {string} access token user gets from [signup](#signup) or [login](#login) service.
-  * filePath — {string} filePath to upload file.
-  * fileName — {string} name of the file.
+
+- accessToken — {string} access token user gets from [signup](#signup) or
+  [login](#login) service.
+- filePath — {string} filePath to upload file.
+- fileName — {string} name of the file.
 
 Returns
 
@@ -424,15 +489,18 @@ Returns
 }
 ```
 
-User need to sign this raw transaction with ECDSA private key using [signTransaction](#signtransaction) service. And submit tx to PTOY Network (testnet) using [submitTx](#submittx) service.
+User need to sign this raw transaction with ECDSA private key using
+[signTransaction](#signtransaction) service. And submit tx to PTOY Network
+(testnet) using [submitTx](#submittx) service.
 
 ### signTransaction
 
 This service is used to sign raw transaction with ECDSA private key.
 
 > Parameters
-  * rawTx — {object} raw transcation to sign.
-  * privateKey — {string} ECDSA private key to sign the transaction.
+
+- rawTx — {object} raw transcation to sign.
+- privateKey — {string} ECDSA private key to sign the transaction.
 
 Returns
 
@@ -447,14 +515,17 @@ Returns
 This service is used to submit the signed transaction to PTOY Network (testnet).
 
 > Parameters
-  * accessToken — {string} access token user gets from [signup](#signup) or [login](#login) service.
-  * signedTx — {string} signed Transaction which user gets from [signTransaction](#signtransaction) service.
+
+- accessToken — {string} access token user gets from [signup](#signup) or
+  [login](#login) service.
+- signedTx — {string} signed Transaction which user gets from
+  [signTransaction](#signtransaction) service.
 
 Returns
 
 ```js
 {
-  txHash: "0xe85285373af4299fb945c220360b47754c4354a1fc34bfaabc6f97825cebbc10"
+  txHash: '0xe85285373af4299fb945c220360b47754c4354a1fc34bfaabc6f97825cebbc10'
 }
 ```
 
@@ -463,7 +534,9 @@ Returns
 This service is used to get all user files uploaded to PTOY Network (testnet).
 
 > Parameters
-  * accessToken — {string} access token user gets from [signup](#signup) or [login](#login) service.
+
+- accessToken — {string} access token user gets from [signup](#signup) or
+  [login](#login) service.
 
 Returns
 
@@ -498,9 +571,12 @@ The format of the object is
 This service is used to get a single file from the PTOY Network (testnet).
 
 > Parameters
-  * accessToken — {string} access token user gets from [signup](#signup) or [login](#login) service.
-  * fileLink — {string} file link which user gets from [getAllFiles](#getallfiles) service.
-  * fileName — {string} name of the file to save the file in user system.
+
+- accessToken — {string} access token user gets from [signup](#signup) or
+  [login](#login) service.
+- fileLink — {string} file link which user gets from [getAllFiles](#getallfiles)
+  service.
+- fileName — {string} name of the file to save the file in user system.
 
 Returns
 
@@ -515,7 +591,9 @@ Returns
 This service is used to get user balances from PTOY Network (testnet).
 
 > Parameters
-  * accessToken — {string} access token user gets from [signup](#signup) or [login](#login) service.
+
+- accessToken — {string} access token user gets from [signup](#signup) or
+  [login](#login) service.
 
 Returns
 
@@ -532,9 +610,12 @@ Returns
 This service is used to transfer PTOY from one wallet address to another.
 
 > Parameters
-  * accessToken — {string} access token user gets from [signup](#signup) or [login](#login) service.
-  * toAddress — {string} signed Transaction which user gets from [signTransaction](#signtransaction) service.
-  * value: {string|number} number of PTOY user wants to transfer.
+
+- accessToken — {string} access token user gets from [signup](#signup) or
+  [login](#login) service.
+- toAddress — {string} signed Transaction which user gets from
+  [signTransaction](#signtransaction) service.
+- value: {string|number} number of PTOY user wants to transfer.
 
 Returns
 
@@ -550,15 +631,20 @@ Returns
 }
 ```
 
-The user needs to sign this raw transaction with ECDSA private key using [signTransaction](#signtransaction) service. And submit tx to PTOY Network (testnet) using [submitPTOYTx](#submitptoytx) service.
+The user needs to sign this raw transaction with ECDSA private key using
+[signTransaction](#signtransaction) service. And submit tx to PTOY Network
+(testnet) using [submitPTOYTx](#submitptoytx) service.
 
 ### submitPTOYTx
 
 This service is used to submit the signed transaction to PTOY Network (testnet).
 
 > Parameters
-  * accessToken — {string} access token user gets from [signup](#signup) or [login](#login) service.
-  * signedTx — {string} signed Transaction which user gets from [signTransaction](#signtransaction) service.
+
+- accessToken — {string} access token user gets from [signup](#signup) or
+  [login](#login) service.
+- signedTx — {string} signed Transaction which user gets from
+  [signTransaction](#signtransaction) service.
 
 Returns
 
@@ -570,4 +656,5 @@ Returns
 
 ## License
 
-- Open-source [MIT](https://github.com/PTOYNetwork/ptoy-testnet-client/blob/master/LICENSE).
+- Open-source
+  [MIT](https://github.com/PTOYNetwork/ptoy-testnet-client/blob/master/LICENSE).
