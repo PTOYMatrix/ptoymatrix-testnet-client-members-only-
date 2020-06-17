@@ -22,6 +22,7 @@ const transferPTOY = require('./lib/transferPTOY')
 const submitPTOYTx = require('./lib/submitPTOYTx')
 const healthCheck = require('./lib/healthCheck')
 const crypto = require('./lib/crypto')
+const signUpKeys = require('./lib/signUpKeys')
 
 module.exports = {
   mobileRegistration,
@@ -47,5 +48,6 @@ module.exports = {
   transferPTOY,
   submitPTOYTx,
   healthCheck,
-  crypto
+  crypto,
+  signUpKeys
 }

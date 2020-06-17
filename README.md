@@ -10,10 +10,11 @@ breaking changes as we get better.
 This is a client framework for building applications connecting to PTOYMatrix
 blockchain network.
 
-The goal of the PTOYMatrix client SDK is to allow developers to easily create and
-test applications within the PTOYMatrix Network (testnet) without having to recreate
-common blockchain functionality. We visualize the SDK as the standalone nodejs
-package to build blockchain applications on top of PTOYMatrix Network (testnet).
+The goal of the PTOYMatrix client SDK is to allow developers to easily create
+and test applications within the PTOYMatrix Network (testnet) without having to
+recreate common blockchain functionality. We visualize the SDK as the standalone
+nodejs package to build blockchain applications on top of PTOYMatrix Network
+(testnet).
 
 _Note: For now the PTOYMatrix client SDK only exists in javascript as nodejs
 module, which means developers can develop modules in Nodejs using this SDK. In
@@ -42,7 +43,7 @@ languages._
 ### Quick Start
 
 ```js
-const client = require('ptoy-testnet-client');
+const client = require('ptoy-testnet-client')
 ```
 
 `client` instance contains the following services
@@ -353,8 +354,8 @@ Returns
 
 ### dataDecryption
 
-This service is used to decrypt the data downloaded from PTOYMatrix Network (testnet)
-using hybrid encryption/decryption and store it in a file.
+This service is used to decrypt the data downloaded from PTOYMatrix Network
+(testnet) using hybrid encryption/decryption and store it in a file.
 
 > Parameters
 
@@ -512,7 +513,8 @@ Returns
 
 ### submitTx
 
-This service is used to submit the signed transaction to PTOYMatrix Network (testnet).
+This service is used to submit the signed transaction to PTOYMatrix Network
+(testnet).
 
 > Parameters
 
@@ -531,7 +533,8 @@ Returns
 
 ### getAllFiles
 
-This service is used to get all user files uploaded to PTOYMatrix Network (testnet).
+This service is used to get all user files uploaded to PTOYMatrix Network
+(testnet).
 
 > Parameters
 
@@ -637,7 +640,8 @@ The user needs to sign this raw transaction with ECDSA private key using
 
 ### submitPTOYTx
 
-This service is used to submit the signed transaction to PTOYMatrix Network (testnet).
+This service is used to submit the signed transaction to PTOYMatrix Network
+(testnet).
 
 > Parameters
 
