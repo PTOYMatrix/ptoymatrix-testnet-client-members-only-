@@ -1,8 +1,18 @@
 {
-  "name": "ptoy-testnet-client",
+  "name": "@ptoymatrix/client-sdk",
   "version": "1.0.0",
-  "description": "This client library will allow users to connect and execute functions on   PTOY Blockchain (testnet) https://ptoy.org",
+  "description": "This client library will allow users to connect and execute functions on PTOYMatrix Blockchain (testnet) https://ptoy.org",
   "main": "index.js",
+  "author": "Patientory Stiftung",
+  "license": "MIT",
+  "homepage": "https://github.com/PTOYMatrix/ptoy-testnet-client#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PTOYMatrix/ptoy-testnet-client.git"
+  },
+  "bugs": {
+    "url": "https://github.com/PTOYMatrix/ptoy-testnet-client/issues"
+  },
   "directories": {
     "lib": "lib"
   },
@@ -14,16 +24,6 @@
     "lint": "eslint --fix .",
     "build": "browserify index.js -t babelify --outfile ./dist/bundle.js --standalone sdk"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/PTOYMatrix/ptoy-testnet-client.git"
-  },
-  "author": "Patientory Stiftung",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/PTOYMatrix/ptoy-testnet-client/issues"
-  },
-  "homepage": "https://github.com/PTOYMatrix/ptoy-testnet-client#readme",
   "dependencies": {
     "bip39": "^2.6.0",
     "bitcoinjs-lib": "^3.3.2",
@@ -48,7 +48,7 @@
     "babelify": "^10.0.0",
     "browserify": "^16.5.1",
     "dotenv": "^8.2.0",
-    "eslint": "^6.5.1",
+    "eslint": "^7.2.0",
     "eslint-config-prettier": "^6.4.0",
     "prettier": "^2.0.5",
     "rimraf": "^3.0.2"
