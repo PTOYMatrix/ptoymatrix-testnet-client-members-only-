@@ -1,6 +1,6 @@
 {
   "name": "@ptoymatrix/client-sdk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This client library will allow users to connect and execute functions on PTOYMatrix Blockchain (testnet) https://ptoy.org",
   "main": "index.js",
   "author": "Patientory Stiftung",
