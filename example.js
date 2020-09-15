@@ -1,37 +1,45 @@
 const sdk = require('./index')
 require('dotenv').config()
 
-// mobile registration
-sdk.mobileRegistration
-  .run({ mobileCountry: '+1', mobile: '1234567890' })
-  .then(function (data) {
-    console.log(data)
+const sleep = ms => {
+  return new Promise(resolve => {
+    setTimeout(resolve, ms)
   })
-  .catch(function (error) {
-    console.log(error)
-  })
-
-// login to platform
-const login = async function login () {
-  const keys = await sdk.signUpKeys.run({
-    mnemonic:
-      'degree any diesel ski lens brass sleep put twin diamond meadow close'
-  })
-  console.log(keys)
-  const { ecdsaSignature, walletAddress } = keys
-  const loginResponse = await sdk.login.run({ ecdsaSignature, walletAddress })
-
-  return loginResponse
 }
 
-login()
-  .then(function (data) {
-    console.log(data)
-  })
-  .catch(function (error) {
-    console.log(error)
-  })
+const signUpUser = async () => {
+  try {
+    const { mnemonic } = await sdk.generateMnemonic.run()
 
-// sdk. mobileVerification.run({referenceId: 'a631374c-c69d-47e0-a00e-2738b2yp3513', mobileOtp: '318326'}).then(function (data){
-// console.log(data)
-// }).catch(console.log)
+    const { referenceId, otpCode } = await sdk.mobileRegistration.run({
+      mobileCountry: '+1',
+      mobile: '1234567897'
+    })
+
+    const { signupReferenceId } = await sdk.mobileVerification.run({
+      referenceId: referenceId,
+      mobileOtp: otpCode
+    })
+
+    const signUpKeys = await sdk.signUpKeys.run({ mnemonic })
+
+    await sdk.signUp.run(Object.assign({}, { signupReferenceId }, signUpKeys))
+
+    // wait for blockchain to process the transaction before you login
+    await sleep(5000)
+
+    const { userProfile } = await sdk.login.run({
+      walletAddress: signUpKeys.walletAddress,
+      ecdsaSignature: signUpKeys.ecdsaSignature
+    })
+
+    return {
+      userProfile,
+      mnemonic
+    }
+  } catch (error) {
+    return error
+  }
+}
+
+signUpUser().then(console.info).then(console.error)
