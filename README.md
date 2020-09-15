@@ -40,11 +40,25 @@ languages._
 - Transfer PTOYs
 - Submit a PTOY transaction
 
-### Quick Start
+### Install PTOYMatrix Client SDK
+
+```bash
+npm intall @ptoymatrix/client-sdk
+```
+
+OR
+
+```bash
+yarn add @ptoymatrix/client-sdk
+```
 
 ```js
-const client = require('ptoy-testnet-client')
+const client = require('@ptoymatrix/client-sdk')
 ```
+
+### Quick Start
+
+Refer `example.js` for signup and login example
 
 `client` instance contains the following services
 
